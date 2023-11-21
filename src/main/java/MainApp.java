@@ -90,7 +90,7 @@ public class MainApp {
         int borderWidth = scanner.nextInt();
         System.out.println("Enter border color (RED, BLUE, GREEN, CYAN, MAGENTA): ");
         Color borderColor = getColorFromInput(scanner.nextLine());
-        scanner.nextLine();
+        //scanner.nextLine();
         System.out.println("Enter location (x, y): ");
         int x = scanner.nextInt();
         int y = scanner.nextInt();

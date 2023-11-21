@@ -14,6 +14,7 @@ public class Circle extends Shape {
     }
     public void drawCircle(double radius) {
         setTurtleProperties();
+        turtle.setDelay(.000000000001);
         int numSides = 360;
         double angle = 360.0 / numSides;
         double circumference = 2 * Math.PI * radius;
