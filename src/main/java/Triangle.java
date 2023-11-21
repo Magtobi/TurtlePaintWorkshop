@@ -16,12 +16,14 @@ public class Triangle extends Shape {
     }
     private void drawTriangle(int baseLength, int height) {
         setTurtleProperties();
+        double hypotenuse = Math.sqrt((baseLength * baseLength) + (height * height));
+        double angle = Math.toDegrees(Math.atan2(height, baseLength));
         turtle.turnLeft(90);
-        turtle.forward(baseLength);
-        turtle.turnRight(135);
-        turtle.forward(height);
-        turtle.turnRight(135);
-        turtle.forward(baseLength);
-        turtle.turnLeft(90);
+        for (int i = 0; i < 3; i++) {
+            turtle.penDown();
+            turtle.forward((int) hypotenuse);
+            turtle.turnRight(120);
+            turtle.penUp();
+        }
     }
 }

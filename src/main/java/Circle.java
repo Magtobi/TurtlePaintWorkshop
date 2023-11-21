@@ -10,15 +10,17 @@ public class Circle extends Shape {
 
     @Override
     public void paint() {
-        circle(radius);
+       drawCircle(radius);
     }
-    public void circle(double radius) {
+    public void drawCircle(double radius) {
         setTurtleProperties();
         int numSides = 360;
         double angle = 360.0 / numSides;
+        double circumference = 2 * Math.PI * radius;
+
         for (int i = 0; i < numSides; i++) {
-            turtle.forward(radius * Math.PI * angle);
-            turtle.turnLeft(angle);
+            turtle.forward((int) (circumference / numSides));
+            turtle.turnRight(angle);
         }
     }
 }

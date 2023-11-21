@@ -7,8 +7,12 @@ public class MainApp {
     private static World world = new World();
     private static Turtle turtle = new Turtle(world);
 
+
     public static void main(String[] args) {
+        Turtle turtle = new Turtle(world, 0, 0);
         boolean running = true;
+
+
         while (running) {
             displayHomeScreen();
             int choice = scanner.nextInt();
@@ -23,6 +27,7 @@ public class MainApp {
                     break;
                 case 3:
                     running = false;
+                    System.out.println("Exiting the application. Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -67,7 +72,7 @@ public class MainApp {
         System.out.println("Enter border width: ");
         int borderWidth = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Enter border color (RED, BLUE, GREEN): ");
+        System.out.println("Enter border color (RED, BLUE, GREEN, CYAN, MAGENTA): ");
         Color borderColor = getColorFromInput(scanner.nextLine());
         System.out.println("Enter location(x, y): ");
         int x = scanner.nextInt();
@@ -83,8 +88,9 @@ public class MainApp {
         int radius = scanner.nextInt();
         System.out.println("Enter border width: ");
         int borderWidth = scanner.nextInt();
-        System.out.println("Enter border color (RED, BLUE, GREEN): ");
+        System.out.println("Enter border color (RED, BLUE, GREEN, CYAN, MAGENTA): ");
         Color borderColor = getColorFromInput(scanner.nextLine());
+        scanner.nextLine();
         System.out.println("Enter location (x, y): ");
         int x = scanner.nextInt();
         int y = scanner.nextInt();
@@ -102,7 +108,7 @@ public class MainApp {
         System.out.print("Enter border width: ");
         int borderWidth = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter border color (e.g., RED, BLUE, GREEN): ");
+        System.out.print("Enter border color (RED, BLUE, GREEN, CYAN, MAGENTA): ");
         Color borderColor = getColorFromInput(scanner.nextLine());
         System.out.print("Enter location (x, y): ");
         int x = scanner.nextInt();
@@ -110,6 +116,7 @@ public class MainApp {
         scanner.nextLine();
 
         Triangle triangle = new Triangle(turtle, new Point(x, y), borderColor, borderWidth, baseLength, height);
+        triangle.paint();
     }
 
     private static Color getColorFromInput(String color) {
@@ -120,8 +127,12 @@ public class MainApp {
                 return Color.BLUE;
             case "GREEN":
                 return Color.GREEN;
-            default:
+            case "CYAN":
+                return Color.CYAN;
+            case "MAGENTA":
                 return Color.MAGENTA;
+            default:
+                return Color.BLACK;
         }
     }
 
