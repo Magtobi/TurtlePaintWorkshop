@@ -137,8 +137,7 @@ public class MainApp {
     }
 
     private static void saveImage() {
-        // Logic to save the image
-        // Example: world.save("canvas.png");
+        world.saveAs("image.png");
         System.out.println("Image saved.");
     }
 }
